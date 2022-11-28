@@ -49,7 +49,7 @@ router.use((req, res, next) => {
 
 // Routes
 
-router.use('/', userRoutes);
+router.use('/user', userRoutes);
 // Error Handling
 
 router.use((req, res, next) => {
