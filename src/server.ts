@@ -62,4 +62,4 @@ router.use((req, res, next) => {
 
 // Server
 const httpServer = http.createServer(router);
-httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Serving running on ${config.server.hostname} : ${config.server.port}`));
+httpServer.listen(config.server.PORT, () => logging.info(NAMESPACE, `Serving running on ${config.server.hostname} : ${config.server.PORT}`));

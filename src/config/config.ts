@@ -24,8 +24,8 @@ const MONGO = {
     url: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`
 };
 
-const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
-const SERVER_PORT = process.env.SERVER_PORT || 3000;
+const SERVER_HOSTNAME = process.env.HOSTNAME || 'localhost';
+const SERVER_PORT = process.env.PORT || 3000;
 const SERVER_TOKEN_EXPIRETIME = process.env.SERVER_TOKEN_EXPIRETIME || 10;
 const SERVER_TOKEN_ISSUER = process.env.SERVER_TOKEN_ISSUER || 'colabingissuer';
 const SERVER_ACCESS_TOKEN_SECRET =
@@ -35,7 +35,7 @@ const SERVER_REFRESH_TOKEN_SECRET =
 
 const SERVER = {
     hostname: SERVER_HOSTNAME,
-    port: SERVER_PORT,
+    PORT: SERVER_PORT,
     ACCESS_TOKEN: {
         expireTime: SERVER_TOKEN_EXPIRETIME,
         issuer: SERVER_TOKEN_ISSUER,
