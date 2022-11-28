@@ -43,7 +43,7 @@ router.use((req, res, next) => {
     next();
 });
 // Routes
-router.use('/user', user_1.default);
+router.use('/', user_1.default);
 // Error Handling
 router.use((req, res, next) => {
     const error = new Error('Not Found');

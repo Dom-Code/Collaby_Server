@@ -129,4 +129,7 @@ const deleteRefreshToken = (req, res, next) => {
         return res.status(400).json({ err });
     });
 };
-exports.default = { validateToken, register, login, getAllUsers, token, deleteRefreshToken };
+const main = (req, res, next) => {
+    return res.status(200).json({ message: 'Welcome!' });
+};
+exports.default = { validateToken, register, login, getAllUsers, token, deleteRefreshToken, main };
