@@ -5,7 +5,7 @@
     "main": "build/server.js",
     "scripts": {
         "start": "node build/server.js",
-        "build": "tsc"
+        "build": "webpack"
     },
     "author": "",
     "license": "ISC",
