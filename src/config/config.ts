@@ -50,7 +50,8 @@ const SERVER = {
 
 const config = {
     mongo: MONGO,
-    server: SERVER
+    server: SERVER,
+    PORT: process.env.PORT || 3000
 };
 
 export default config;

@@ -7,7 +7,7 @@ const user_1 = __importDefault(require("../controllers/user"));
 const extractJWT_1 = __importDefault(require("../middleware/extractJWT"));
 const joi_1 = require("../middleware/joi");
 const router = express_1.default.Router();
-router.get('/', user_1.default.main);
+router.get('/main', user_1.default.main);
 router.get('/validate', extractJWT_1.default, user_1.default.validateToken);
 router.post('/register', (0, joi_1.ValidateJoi)(joi_1.RegisterSchema), user_1.default.register);
 router.post('/login', (0, joi_1.ValidateJoi)(joi_1.LoginSchema), user_1.default.login);
