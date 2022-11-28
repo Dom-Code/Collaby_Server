@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "build/server.js",
-    "homepage": "https://dom-code.github.io/CollabyServer/",
     "scripts": {
         "start": "node build/server.js",
         "build": "tsc"
