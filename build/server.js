@@ -53,4 +53,4 @@ router.use((req, res, next) => {
 });
 // Server
 const httpServer = http_1.default.createServer(router);
-httpServer.listen(config_1.default.PORT, () => logging_1.default.info(NAMESPACE, `Serving running on ${config_1.default.server.hostname} : ${config_1.default.PORT}`));
+httpServer.listen(config_1.default.server.PORT, () => logging_1.default.info(NAMESPACE, `Serving running on ${config_1.default.server.hostname} : ${config_1.default.server.PORT}`));

@@ -8,7 +8,7 @@
         "start": "node build/server.js",
         "server": "node server.js",
         "client": "npm start --prefix client",
-        "build": "webpack"
+        "build": "tsc"
     },
     "heroku-run-build-script": true,
     "author": "",
