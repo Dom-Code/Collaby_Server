@@ -18,7 +18,7 @@ const validateToken = (req, res, next) => {
     });
 };
 const register = (req, res, next) => {
-    let { email, password } = req.body;
+    let { first, last, email, password } = req.body;
     bcryptjs_1.default.hash(password, 10, (hashError, hash) => {
         if (hashError) {
             res.status(500).json({
@@ -28,6 +28,8 @@ const register = (req, res, next) => {
         }
         const _user = new user_1.default({
             _id: new mongoose_1.default.Types.ObjectId(),
+            first: first,
+            last: last,
             email: email.toLowerCase(),
             password: hash,
             editor: '',
@@ -129,7 +131,7 @@ const deleteRefreshToken = (req, res, next) => {
         return res.status(400).json({ err });
     });
 };
-const main = (req, res, next) => {
+const home = (req, res, next) => {
     return res.status(200).json({ message: 'Welcome!' });
 };
-exports.default = { validateToken, register, login, getAllUsers, token, deleteRefreshToken, main };
+exports.default = { validateToken, register, login, getAllUsers, token, deleteRefreshToken, home };
