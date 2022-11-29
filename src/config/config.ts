@@ -25,7 +25,7 @@ const MONGO = {
 };
 
 const SERVER_HOSTNAME = process.env.HOSTNAME || 'localhost';
-const SERVER_PORT = process.env.PORT || 3000;
+const SERVER_PORT = process.env.PORT || 5000;
 const SERVER_TOKEN_EXPIRETIME = process.env.SERVER_TOKEN_EXPIRETIME || 10;
 const SERVER_TOKEN_ISSUER = process.env.SERVER_TOKEN_ISSUER || 'colabingissuer';
 const SERVER_ACCESS_TOKEN_SECRET =

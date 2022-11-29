@@ -22,6 +22,6 @@ export const RegisterSchema = Joi.object({
     first: Joi.string().pattern(new RegExp('^[A-Za-z]{2,16}$')),
     last: Joi.string().pattern(new RegExp('^[A-Za-z]{2,16}$')),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-    password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+    password: Joi.string().pattern(new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')),
     repeat_password: Joi.ref('password')
 });

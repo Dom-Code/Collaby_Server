@@ -5,6 +5,13 @@ import logging from './config/logging';
 import config from './config/config';
 import userRoutes from './routes/user';
 import mongoose from 'mongoose';
+import cors from 'cors';
+
+const allowedList = ['http://localhost:3000'];
+
+const options: cors.CorsOptions = {
+    origin: allowedList
+};
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -19,6 +26,8 @@ mongoose
     .catch((err) => {
         logging.error(NAMESPACE, err.message, err);
     });
+
+router.use(cors(options));
 
 router.use((req, res, next) => {
     logging.info(NAMESPACE, `Method: [${req.method}], URL: [$Preq.url], IP: [${req.socket.remoteAddress}]`);
