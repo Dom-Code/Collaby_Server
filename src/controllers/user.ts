@@ -138,7 +138,7 @@ const deleteRefreshToken = (req: Request, res: Response, next: NextFunction) => 
         });
 };
 
-const main = (req: Request, res: Response, next: NextFunction) => {
+const home = (req: Request, res: Response, next: NextFunction) => {
     return res.status(200).json({ message: 'Welcome!' });
 };
-export default { validateToken, register, login, getAllUsers, token, deleteRefreshToken, main };
+export default { validateToken, register, login, getAllUsers, token, deleteRefreshToken, home };

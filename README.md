@@ -2,6 +2,10 @@
 
 A Restful API that will register a new user, manage login and logout, and safely handle access and refresh tokens.
 
+To access the welcome screen on the web.
+
+https://collabyserver.herokuapp.com/user/main
+
 ### Basic Overview
 
 This Restful API will serve as the backend for a front end application. It will register a new user using their email address and their password which will be hashed using `bcrypt`. The user
