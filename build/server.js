@@ -10,6 +10,11 @@ const logging_1 = __importDefault(require("./config/logging"));
 const config_1 = __importDefault(require("./config/config"));
 const user_1 = __importDefault(require("./routes/user"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const cors_1 = __importDefault(require("cors"));
+const allowedList = ['http://localhost:3000'];
+const options = {
+    origin: allowedList
+};
 const NAMESPACE = 'Server';
 const router = (0, express_1.default)();
 // Connect to Mongo
@@ -21,6 +26,7 @@ mongoose_1.default
     .catch((err) => {
     logging_1.default.error(NAMESPACE, err.message, err);
 });
+router.use((0, cors_1.default)(options));
 router.use((req, res, next) => {
     logging_1.default.info(NAMESPACE, `Method: [${req.method}], URL: [$Preq.url], IP: [${req.socket.remoteAddress}]`);
     res.on(`finish`, () => {

@@ -1,11 +1,9 @@
-'use strict';
-var __importDefault =
-    (this && this.__importDefault) ||
-    function (mod) {
-        return mod && mod.__esModule ? mod : { default: mod };
-    };
-Object.defineProperty(exports, '__esModule', { value: true });
-const dotenv_1 = __importDefault(require('dotenv'));
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const MONGO_OPTIONS = {
     useUnifiedTopology: true,
@@ -27,13 +25,11 @@ const MONGO = {
     url: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`
 };
 const SERVER_HOSTNAME = process.env.HOSTNAME || 'localhost';
-const SERVER_PORT = process.env.PORT || 3000;
+const SERVER_PORT = process.env.PORT || 5000;
 const SERVER_TOKEN_EXPIRETIME = process.env.SERVER_TOKEN_EXPIRETIME || 10;
 const SERVER_TOKEN_ISSUER = process.env.SERVER_TOKEN_ISSUER || 'colabingissuer';
-const SERVER_ACCESS_TOKEN_SECRET =
-    process.env.SERVER_ACCESS_TOKEN_SECRET || '5c6617c6946328e4a540e0724af5c0ac6776a5b3318fba5190e019aacfb503f47aa5bf95d1dd687f5fba1a0c4159a550102c81a930453952330f0bb275d2434d';
-const SERVER_REFRESH_TOKEN_SECRET =
-    process.env.SERVER_REFRESH_TOKEN_SECRET || '55d8ae87e8c4e31caa56c96f32e4e3292e1b5475eda584dc87b87ce096c069cba5c6d1a990794677ee725b82c13acc53dced483e2f68a5501d15c1964f85a381';
+const SERVER_ACCESS_TOKEN_SECRET = process.env.SERVER_ACCESS_TOKEN_SECRET || '5c6617c6946328e4a540e0724af5c0ac6776a5b3318fba5190e019aacfb503f47aa5bf95d1dd687f5fba1a0c4159a550102c81a930453952330f0bb275d2434d';
+const SERVER_REFRESH_TOKEN_SECRET = process.env.SERVER_REFRESH_TOKEN_SECRET || '55d8ae87e8c4e31caa56c96f32e4e3292e1b5475eda584dc87b87ce096c069cba5c6d1a990794677ee725b82c13acc53dced483e2f68a5501d15c1964f85a381';
 const SERVER = {
     hostname: SERVER_HOSTNAME,
     PORT: SERVER_PORT,

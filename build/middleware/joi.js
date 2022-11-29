@@ -35,6 +35,6 @@ exports.RegisterSchema = joi_1.default.object({
     first: joi_1.default.string().pattern(new RegExp('^[A-Za-z]{2,16}$')),
     last: joi_1.default.string().pattern(new RegExp('^[A-Za-z]{2,16}$')),
     email: joi_1.default.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-    password: joi_1.default.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+    password: joi_1.default.string().pattern(new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')),
     repeat_password: joi_1.default.ref('password')
 });
