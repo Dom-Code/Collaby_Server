@@ -10,7 +10,7 @@ const router = express_1.default.Router();
 router.get('/home', user_1.default.home);
 router.get('/validate', extractJWT_1.default, user_1.default.validateToken);
 router.post('/register', (0, joi_1.ValidateJoi)(joi_1.RegisterSchema), user_1.default.register);
-router.post('/login', (0, joi_1.ValidateJoi)(joi_1.LoginSchema), user_1.default.login);
+router.post('/login', user_1.default.login);
 router.get('/get/all', user_1.default.getAllUsers);
 router.post('/token', user_1.default.token);
 router.delete('/logout', user_1.default.deleteRefreshToken);

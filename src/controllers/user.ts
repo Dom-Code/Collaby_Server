@@ -53,6 +53,7 @@ const register = (req: Request, res: Response, next: NextFunction) => {
 
 const login = (req: Request, res: Response, next: NextFunction) => {
     let { email, password } = req.body;
+
     User.find({ email: email.toLowerCase() })
         .exec()
         .then((users) => {
