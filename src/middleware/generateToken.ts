@@ -6,7 +6,7 @@ const generateAccessToken = (user: any) => {
     return jwt.sign(user, config.server.ACCESS_TOKEN.secret, {
         issuer: config.server.ACCESS_TOKEN.issuer,
         algorithm: 'HS256',
-        expiresIn: 200
+        expiresIn: 90
     });
 };
 

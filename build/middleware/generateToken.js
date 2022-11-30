@@ -9,7 +9,7 @@ const generateAccessToken = (user) => {
     return jsonwebtoken_1.default.sign(user, config_1.default.server.ACCESS_TOKEN.secret, {
         issuer: config_1.default.server.ACCESS_TOKEN.issuer,
         algorithm: 'HS256',
-        expiresIn: 200
+        expiresIn: 90
     });
 };
 exports.default = generateAccessToken;

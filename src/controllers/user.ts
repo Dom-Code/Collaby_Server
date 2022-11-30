@@ -19,36 +19,46 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
 
 const register = (req: Request, res: Response, next: NextFunction) => {
     let { first, last, email, password } = req.body;
-
-    bcryptjs.hash(password, 10, (hashError, hash) => {
-        if (hashError) {
-            res.status(500).json({
-                message: hashError.message,
-                error: hashError
-            });
-        }
-        const _user = new User({
-            _id: new mongoose.Types.ObjectId(),
-            first: first,
-            last: last,
-            email: email.toLowerCase(),
-            password: hash,
-            editor: '',
-            code: '',
-            team: []
-        });
-        return _user
-            .save()
-            .then((user) => {
-                return res.status(201).json({ user });
-            })
-            .catch((err) => {
-                return res.status(500).json({
-                    message: err.message,
-                    err
+    User.find({ email: email.toLowerCase() })
+        .exec()
+        .then((users) => {
+            if (users.length !== 1) {
+                bcryptjs.hash(password, 10, (hashError, hash) => {
+                    if (hashError) {
+                        res.status(500).json({
+                            message: hashError.message,
+                            error: hashError
+                        });
+                    }
+                    const _user = new User({
+                        _id: new mongoose.Types.ObjectId(),
+                        first: first,
+                        last: last,
+                        email: email.toLowerCase(),
+                        password: hash,
+                        editor: '',
+                        code: '',
+                        team: []
+                    });
+                    return _user
+                        .save()
+                        .then((user) => {
+                            return res.status(201).json({ user });
+                        })
+                        .catch((err) => {
+                            return res.status(500).json({
+                                message: err.message,
+                                err
+                            });
+                        });
                 });
-            });
-    });
+            } else {
+                return res.status(409).json({ message: 'User Exists' });
+            }
+        })
+        .catch((error) => {
+            return res.status(500).json({ message: error.message, error });
+        });
 };
 
 const login = (req: Request, res: Response, next: NextFunction) => {
